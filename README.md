@@ -42,14 +42,52 @@ $ sudo rosdep init
 
 $ rosdep update
 
+It is necessary to install a library that may not be installed with the ROS installation. This library is used to display a layer in RVIZ that shows the obstacles in the map. 
+
+$ sudo apt-get install ros-melodic-spatio-temporal-voxel-layer
+
 ## Usage
 
 To use this software you must follow the next steps:
 
-1. Open two terminals
-2. $ cd ~/
+Open a terminal
+1. $ cd ~/catkin_lola2
+2. $ catkin_make
+3. $ . deves/setup.bash
+4. $ cd src
+5. $ rosrun lola2_global hwinterface_script_lola2
+
+Open another terminal
+1. $ cd ~/catkin_lola2
+2. $ catkin_make
+3. $ . deves/setup.bash
+4. $ cd src 
+5. $ roslaunch lola2_global rviz_navigation.launch
+
+We have to start runing the hwinterface_script_lola2.py first cause if not it will be waiting for the rviz_navigation.launch to finish. After we launch the hwinterface we launch the rviz_navigation.launch that will start all the nodes structure that we need to start the navigation.
+
+After this we will see in the screen that RVIZ opens.
+
+<img width="1096" alt="Screenshot 2021-06-30 at 10 45 57" src="https://user-images.githubusercontent.com/38068010/123930814-5d5fa780-d990-11eb-8532-db4bb158d046.png">
+
+The platform will be displayed in a predetermined point in the map, to change that we just have to click in the "2D Pose Estimate" option and click in the map where the platform is located.
+
+https://user-images.githubusercontent.com/38068010/123932843-212d4680-d992-11eb-94fb-80aa0db5e3a2.mp4
+
+When we have the platform in where in the real world is we just have to indicate the point where we want the platform to go. To do that we just have to select the "2D Nav Goal" option and click in the map where you want the platform to be. While you click in the map to select the point you have to drag the cursor indicating the orientation that you want the platform to have when it reaches the point.
+
+https://user-images.githubusercontent.com/38068010/123990523-1ee6de80-d9ca-11eb-8975-39ca9b45680e.mp4
 
 ## Support
+In the project there is a folder called "config" where the parameter files reside. Therer a a lot of parameters and all of them are optimized for our platfor, you are free to modify any of them. The most important ones are:
+
+- 'max_velocity' and 'min_celocity'
+- 'yaw_goal_tolerance' and 'xy_goal_tolerance'
+- 'occdist_scale'
+- 'sim_granularity'
+- 'inflation_radius'
+- 'cost_scaling_factor'
+
 The best support that you can get is the wiki of ROS http://wiki.ros.org/Documentation
 Anyway here it is my personal email to contact me in case that you need some help sanmasja@gmail.com
 
