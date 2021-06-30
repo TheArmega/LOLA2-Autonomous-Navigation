@@ -1,0 +1,8 @@
+prefix=/home/gram/catkin_lola2/devel
+
+Name: lola2_global
+Description: Description of lola2_global
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,2 @@
+lola2_global
+-DCATKIN_DEVEL_PREFIX=/home/gram/catkin_lola2/devel -DCMAKE_INSTALL_PREFIX=/home/gram/catkin_lola2/install -G Unix Makefiles
