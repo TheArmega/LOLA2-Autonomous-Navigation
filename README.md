@@ -53,14 +53,14 @@ To use this software you must follow the next steps:
 Open a terminal
 1. $ cd ~/catkin_lola2
 2. $ catkin_make
-3. $ . deves/setup.bash
+3. $ . devel/setup.bash
 4. $ cd src
 5. $ rosrun lola2_global hwinterface_script_lola2
 
 Open another terminal
 1. $ cd ~/catkin_lola2
 2. $ catkin_make
-3. $ . deves/setup.bash
+3. $ . devel/setup.bash
 4. $ cd src 
 5. $ roslaunch lola2_global rviz_navigation.launch
 
