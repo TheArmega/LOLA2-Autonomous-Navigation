@@ -42,9 +42,73 @@ $ sudo rosdep init
 
 $ rosdep update
 
-It is necessary to install a library that may not be installed with the ROS installation. This library is used to display a layer in RVIZ that shows the obstacles in the map. 
+It is necessary to install libraries that may not be installed with the ROS installation:
 
 $ sudo apt-get install ros-melodic-spatio-temporal-voxel-layer
+
+$ sudo apt-get install ros-melodic-navigation
+
+## Arduino
+
+In this repository there is included an Arduinio folder in where we have all the software relative to the Arduino board. To install the Arduino software in your Arduino board you just have to follow the next steps:
+
+1. Download the Arduino IDE, https://www.arduino.cc/en/software
+
+
+2. Download the mcp2515 library needed to make the software work, https://github.com/autowp/arduino-mcp2515/archive/master.zip
+
+
+3. Install the library as it is represented in this images
+
+<img width="747" alt="ZIP" src="https://user-images.githubusercontent.com/38068010/134490433-106c346d-ca00-43f9-a3f2-22073fc0d058.png">  <img width="740" alt="InstallZip" src="https://user-images.githubusercontent.com/38068010/134490475-ef554474-924d-4ee4-bfab-92aad78d6578.png">
+
+
+4. Open, inside the Arduino folder from this repository, the SRE.ino file.
+
+<img width="744" alt="Abrir" src="https://user-images.githubusercontent.com/38068010/134490698-7ade6a8f-3395-4307-bef7-0bbe613ac26f.png">
+<img width="742" alt="Abierto" src="https://user-images.githubusercontent.com/38068010/134490704-c8a7e275-f6c0-473b-966d-f3de047e62b1.png">
+
+5. Compile the project and verify everything is working well.
+
+6. Connect the Arduino board to the computer andopen a serial monitor, if you get some data back that means that the installation has been done successfully.
+
+<img width="776" alt="SerialMonitor" src="https://user-images.githubusercontent.com/38068010/134491145-ba249f16-a126-4aab-831f-e0145cd3385e.png">
+
+## Catkin Workspace Creation
+
+It is necessary to create a catkin workspace to put the project and compile it:
+
+$ mkdir -p ~/catkin_ws/src
+
+$ cd ~/catkin_ws
+
+$ catkin_make
+
+$ source devel/setup.bash
+
+To make sure that the workspace is correctly overlaid by the configuration script, make sure that the ROS PACKAGE PATH environment variable includes the directory in which it is located, for this we will use the following command:
+
+$ echo $ROS_PACKAGE_PATH
+
+Which should return something like:
+
+/home/youruser/catkin_ws/src:/opt/ros/melodic/share
+
+We need to clone a repository to make the rplidar work. This one has to be clonated in the src folder inside the catkin workspace:
+
+$ cd ~/catkin_ws/src
+
+$ git clone https://github.com/Slamtec/rplidar_ros.git
+
+After that you will have your catkin workspace ready to go. The last step that you have to make is to add the "lola2_global" folder of this repository in the rute:
+
+/home/youruser/catkin_ws/src
+
+Then you have to compile again the workspace using:
+
+$ cd ~/catkin_ws
+
+$ catkin_make
 
 ## Usage
 
