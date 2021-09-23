@@ -74,6 +74,8 @@ In this repository there is included an Arduinio folder in where we have all the
 
 <img width="776" alt="SerialMonitor" src="https://user-images.githubusercontent.com/38068010/134491145-ba249f16-a126-4aab-831f-e0145cd3385e.png">
 
+7. If it is not working it may be because you have to select the "Arduino Mega" in the board options and the baudios option has to be at 115200.
+
 ## Catkin Workspace Creation
 
 It is necessary to create a catkin workspace to put the project and compile it:
